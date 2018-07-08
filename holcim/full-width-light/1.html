@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>HOLCIM</title>
+    <meta name="author" content=""/>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="la-anim-1"></div>
+    </div>
+    <!-- /Preloader -->
+    <div class="wrapper  theme-1-active pimary-color-blue">
+        <!-- Top Menu Items -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="mobile-only-brand pull-left">
+                <a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
+                <div class="logo-wrap">
+                    <a href="index.html">
+                        <img class="brand-img" src="../img/logo.png" alt="brand"/>
+                    </a>
+                </div>
+            </div>
+            <div id="mobile_only_nav" class="mobile-only-nav pull-right">
+                <ul class="nav navbar-right top-nav pull-right">
+                    <li>
+                        <a id="open_right_sidebar" href="#"><i class="zmdi zmdi-settings top-nav-icon"></i></a>
+                    </li>
+                    <li class="dropdown app-drp">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps top-nav-icon"></i></a>
+                    </li>
+                    
+                </ul>
+            </div>  
+        </nav>
+        
+        
+        
+        <!-- Right Sidebar Backdrop -->
+        <div class="right-sidebar-backdrop"></div>
+        <!-- /Right Sidebar Backdrop -->
+
+        <!-- Main Content -->
+        <div class="page-wrapper">
+            <div class="container-fluid pt-25">
+                <!-- Row -->
+                <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-default card-view panel-refresh">
+                            <div class="refresh-container">
+                                <div class="la-anim-1"></div>
+                            </div>
+                            <div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+                                    <div id="container"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Row -->
+            </div>
+            
+            <!-- Footer -->
+            <footer class="footer container-fluid pl-30 pr-30">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>2017 &copy; Elmer. Pampered by Hencework</p>
+                    </div>
+                </div>
+            </footer>
+            <!-- /Footer -->
+            
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+    
+    <!-- JavaScript -->
+    
+    <!-- jQuery -->
+    <script src="../../vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+    <script type="text/javascript">
+        $.getJSON('data-1.json', function (data) {
+        // Create the chart
+        Highcharts.stockChart('container', {
+
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            title: {
+                text: 'AAPL Stock Price'
+            },
+
+            series: [{
+                name: 'AAPL',
+                data: data,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+    });
+    </script>
+</body>
+</html>

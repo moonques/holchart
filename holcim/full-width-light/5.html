@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>HOLCIM</title>
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+		
+	<!-- Custom CSS -->
+	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+
+	<style type="text/css">
+		#chartdiv {
+		  width: 100%;
+		  height: 500px;
+		}		
+
+		#chartdiv2 {
+		  width: 100%;
+		  height: 220px;
+		}		
+
+		#chartdiv3 {
+		  width: 100%;
+		  height: 220px;
+		}		
+	</style>
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!-- /Preloader -->
+    <div class="wrapper  theme-1-active pimary-color-blue">
+		<!-- Top Menu Items -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="mobile-only-brand pull-left">
+				<!-- <div class="nav-header pull-left">
+					<div class="logo-wrap">
+						<a href="index.html">
+							<img class="brand-img" src="../img/logo.png" alt="brand"/>
+							<span class="brand-text">Elmer</span>
+						</a>
+					</div>
+				</div>-->	
+				<!-- <a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="zmdi zmdi-menu"></i></a> -->
+				<!-- <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-search"></i></a> -->
+				<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
+				<div class="logo-wrap">
+					<a href="index.html">
+						<img class="brand-img" src="../img/logo.png" alt="brand"/>
+							<!-- <span class="brand-text">Elmer</span> -->
+					</a>
+				</div>
+				<!-- <form id="search_form" role="search" class="top-nav-search collapse pull-left">
+					<div class="input-group">
+						<input type="text" name="example-input1-group2" class="form-control" placeholder="Search">
+						<span class="input-group-btn">
+						<button type="button" class="btn  btn-default"  data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
+						</span>
+					</div>
+				</form> -->
+			</div>
+			<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+				<ul class="nav navbar-right top-nav pull-right">
+					<li>
+						<a id="open_right_sidebar" href="#"><i class="zmdi zmdi-settings top-nav-icon"></i></a>
+					</li>
+					<li class="dropdown app-drp">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps top-nav-icon"></i></a>
+						
+					</li>
+					
+				</ul>
+			</div>	
+		</nav>
+		
+		
+		
+		<!-- Right Sidebar Backdrop -->
+		<div class="right-sidebar-backdrop"></div>
+		<!-- /Right Sidebar Backdrop -->
+
+        <!-- Main Content -->
+		<div class="page-wrapper">
+            <div class="container-fluid pt-25">
+				<!-- Row -->
+				<div class="row">
+				<div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-default card-view panel-refresh">
+							<div class="refresh-container">
+								<div class="la-anim-1"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+									<div id="chartdiv"></div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div id="chartdiv2"></div>
+								</div>	
+							</div>
+						</div>
+						<div class="panel panel-default card-view">
+							<div class="panel-wrapper collapse in">
+                                <div class="panel-body sm-data-box-1">
+									<div id="chartdiv3"></div>
+								</div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<!-- /Row -->
+			</div>
+			
+			<!-- Footer -->
+			<footer class="footer container-fluid pl-30 pr-30">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>2017 &copy; Elmer. Pampered by Hencework</p>
+					</div>
+				</div>
+			</footer>
+			<!-- /Footer -->
+			
+		</div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+	<!-- JavaScript -->
+	
+    <!-- jQuery -->
+    <script src="../../vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+	<!-- Init JavaScript -->
+	<script src="dist/js/init.js"></script>
+	<script type="text/javascript">
+		var chart = AmCharts.makeChart("chartdiv", {
+		    "theme": "light",
+		    "type": "serial",
+		    "dataProvider": [{
+		        "country": "USA",
+		        "year2004": 3.5,
+		        "year2005": 4.2
+		    }, {
+		        "country": "UK",
+		        "year2004": 1.7,
+		        "year2005": 3.1
+		    }, {
+		        "country": "Canada",
+		        "year2004": 2.8,
+		        "year2005": 2.9
+		    }, {
+		        "country": "Japan",
+		        "year2004": 2.6,
+		        "year2005": 2.3
+		    }, {
+		        "country": "France",
+		        "year2004": 1.4,
+		        "year2005": 2.1
+		    }, {
+		        "country": "Brazil",
+		        "year2004": 2.6,
+		        "year2005": 4.9
+		    }, {
+		        "country": "Russia",
+		        "year2004": 6.4,
+		        "year2005": 7.2
+		    }, {
+		        "country": "India",
+		        "year2004": 8,
+		        "year2005": 7.1
+		    }, {
+		        "country": "China",
+		        "year2004": 9.9,
+		        "year2005": 10.1
+		    }],
+		    "valueAxes": [{
+		        "stackType": "3d",
+		        "unit": "%",
+		        "position": "left",
+		        "title": "GDP growth rate",
+		    }],
+		    "startDuration": 1,
+		    "graphs": [{
+		        "balloonText": "GDP grow in [[category]] (2004): <b>[[value]]</b>",
+		        "fillAlphas": 0.9,
+		        "lineAlpha": 0.2,
+		        "title": "2004",
+		        "type": "column",
+		        "valueField": "year2004"
+		    }, {
+		        "balloonText": "GDP grow in [[category]] (2005): <b>[[value]]</b>",
+		        "fillAlphas": 0.9,
+		        "lineAlpha": 0.2,
+		        "title": "2005",
+		        "type": "column",
+		        "valueField": "year2005"
+		    }],
+		    "plotAreaFillAlphas": 0.1,
+		    "depth3D": 60,
+		    "angle": 30,
+		    "categoryField": "country",
+		    "categoryAxis": {
+		        "gridPosition": "start"
+		    },
+		    "export": {
+		    	"enabled": true
+		     }
+		});
+
+		jQuery('.chart-input').off().on('input change',function() {
+			var property	= jQuery(this).data('property');
+			var target		= chart;
+			chart.startDuration = 0;
+
+			if ( property == 'topRadius') {
+				target = chart.graphs[0];
+		      	if ( this.value == 0 ) {
+		          this.value = undefined;
+		      	}
+			}
+
+			target[property] = this.value;
+			chart.validateNow();
+		});
+
+		var chart = AmCharts.makeChart("chartdiv2", {
+		    "theme": "light",
+		    "type": "serial",
+		    "dataProvider": [{
+		        "country": "USA",
+		        "year2004": 3.5,
+		        "year2005": 4.2
+		    }, {
+		        "country": "UK",
+		        "year2004": 1.7,
+		        "year2005": 3.1
+		    }, {
+		        "country": "Canada",
+		        "year2004": 2.8,
+		        "year2005": 2.9
+		    }, {
+		        "country": "Japan",
+		        "year2004": 2.6,
+		        "year2005": 2.3
+		    }, {
+		        "country": "France",
+		        "year2004": 1.4,
+		        "year2005": 2.1
+		    }, {
+		        "country": "Brazil",
+		        "year2004": 2.6,
+		        "year2005": 4.9
+		    }, {
+		        "country": "Russia",
+		        "year2004": 6.4,
+		        "year2005": 7.2
+		    }, {
+		        "country": "India",
+		        "year2004": 8,
+		        "year2005": 7.1
+		    }, {
+		        "country": "China",
+		        "year2004": 9.9,
+		        "year2005": 10.1
+		    }],
+		    "valueAxes": [{
+		        "stackType": "3d",
+		        "unit": "%",
+		        "position": "left",
+		        "title": "GDP growth rate",
+		    }],
+		    "startDuration": 1,
+		    "graphs": [{
+		        "balloonText": "GDP grow in [[category]] (2004): <b>[[value]]</b>",
+		        "fillAlphas": 0.9,
+		        "lineAlpha": 0.2,
+		        "title": "2004",
+		        "type": "column",
+		        "valueField": "year2004"
+		    }, {
+		        "balloonText": "GDP grow in [[category]] (2005): <b>[[value]]</b>",
+		        "fillAlphas": 0.9,
+		        "lineAlpha": 0.2,
+		        "title": "2005",
+		        "type": "column",
+		        "valueField": "year2005"
+		    }],
+		    "plotAreaFillAlphas": 0.1,
+		    "depth3D": 60,
+		    "angle": 30,
+		    "categoryField": "country",
+		    "categoryAxis": {
+		        "gridPosition": "start"
+		    },
+		    "export": {
+		    	"enabled": true
+		     }
+		});
+
+		var chart = AmCharts.makeChart("chartdiv3", {
+		    "theme": "light",
+		    "type": "serial",
+		    "dataProvider": [{
+		        "country": "USA",
+		        "year2004": 3.5,
+		        "year2005": 4.2
+		    }, {
+		        "country": "UK",
+		        "year2004": 1.7,
+		        "year2005": 3.1
+		    }, {
+		        "country": "Canada",
+		        "year2004": 2.8,
+		        "year2005": 2.9
+		    }, {
+		        "country": "Japan",
+		        "year2004": 2.6,
+		        "year2005": 2.3
+		    }, {
+		        "country": "France",
+		        "year2004": 1.4,
+		        "year2005": 2.1
+		    }, {
+		        "country": "Brazil",
+		        "year2004": 2.6,
+		        "year2005": 4.9
+		    }, {
+		        "country": "Russia",
+		        "year2004": 6.4,
+		        "year2005": 7.2
+		    }, {
+		        "country": "India",
+		        "year2004": 8,
+		        "year2005": 7.1
+		    }, {
+		        "country": "China",
+		        "year2004": 9.9,
+		        "year2005": 10.1
+		    }],
+		    "valueAxes": [{
+		        "stackType": "3d",
+		        "unit": "%",
+		        "position": "left",
+		        "title": "GDP growth rate",
+		    }],
+		    "startDuration": 1,
+		    "graphs": [{
+		        "balloonText": "GDP grow in [[category]] (2004): <b>[[value]]</b>",
+		        "fillAlphas": 0.9,
+		        "lineAlpha": 0.2,
+		        "title": "2004",
+		        "type": "column",
+		        "valueField": "year2004"
+		    }, {
+		        "balloonText": "GDP grow in [[category]] (2005): <b>[[value]]</b>",
+		        "fillAlphas": 0.9,
+		        "lineAlpha": 0.2,
+		        "title": "2005",
+		        "type": "column",
+		        "valueField": "year2005"
+		    }],
+		    "plotAreaFillAlphas": 0.1,
+		    "depth3D": 60,
+		    "angle": 30,
+		    "categoryField": "country",
+		    "categoryAxis": {
+		        "gridPosition": "start"
+		    },
+		    "export": {
+		    	"enabled": true
+		     }
+		});
+
+	</script>
+</body>
+
+
+</html>
